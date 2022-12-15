@@ -12,10 +12,6 @@ app.debug = True # Make this False if you are no longer debugging
 
 
 @app.route('/')
-def hello():
-    return 'Hello World!'
-
-
 @app.route('/lab_temp')
 def lab_temp():
     i2c = board.I2C()

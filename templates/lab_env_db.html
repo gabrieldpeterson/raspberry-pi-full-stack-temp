@@ -23,6 +23,11 @@
   </head>
   <body>
     <div class="container">
+      <div class="row" style="padding-top:30px;">
+        <div class="four columns">
+          <a href="/lab_temp" class="u-full-width">Current Temperature and Humidity</a>
+        </div>
+      </div>
       <!-- Datetimepicker form start -->
       <div class="row">
         <form id="datetime_range" action="/lab_env_db" method="GET"> 
@@ -44,6 +49,8 @@
     <!-- Radio buttons form start -->
       <div class="row">
         <div class="eleven columns">
+          <div class="one column">
+          </div>
           <form id="range_select" action = "/lab_env_db" method="GET">        
             <div class="one column">
               <input type="radio" name="range_h" value="3" id="radio_3" /><label for="radio_3">3hrs</label>
