@@ -157,7 +157,7 @@
       data.addColumn('number', 'Temperature');      
       data.addRows([
           {% for row in temp %} 
-            [new Date({{row[0][0:4]}},{{row[0][5:7]}},{{row[0][8:10]}},{{row[0][11:13]}},{{row[0][14:16]}}),
+            [new Date({{row[0][0:4]}},{{row[0][5:7]}}-1,{{row[0][8:10]}},{{row[0][11:13]}},{{row[0][14:16]}}),
                 {{'%0.2f'|format(row[2])}}],
           {% endfor %}
         ]);
@@ -168,7 +168,10 @@
         hAxis: {
           title: "Date",
           gridlines: { count: {{temp_items}}, color: '#CCC' },
-          format:  'dd-MMM-yyyy HH:mm' },
+          format:  'dd-MMM-yyyy HH:mm',
+          direction: -1,
+          slantedText: true,
+          slantedTextAngle: 45},
         vAxis: {
           title: 'Degrees C / F',
         },
@@ -194,7 +197,7 @@
       data.addColumn('number', 'Humidity');      
       data.addRows([
           {% for row in hum %}
-            [new Date({{row[0][0:4]}},{{row[0][5:7]}},{{row[0][8:10]}},{{row[0][11:13]}},{{row[0][14:16]}}),{{'%0.2f'|format(row[2])}}],
+            [new Date({{row[0][0:4]}},{{row[0][5:7]}}-1,{{row[0][8:10]}},{{row[0][11:13]}},{{row[0][14:16]}}),{{'%0.2f'|format(row[2])}}],
           {% endfor %}
         ]);
 
@@ -204,7 +207,10 @@
         hAxis: {
           title: "Date",
           gridlines: { count: {{hum_items}}, color: '#CCC' },
-          format: 'dd-MMM-yyyy HH:mm'        },
+          format: 'dd-MMM-yyyy HH:mm',
+          direction: -1,
+          slantedText: true,
+          slantedTextAngle: 45},
         vAxis: {
           title: 'Percent'
         },
