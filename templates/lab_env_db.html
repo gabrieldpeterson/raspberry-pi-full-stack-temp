@@ -23,6 +23,25 @@
   </head>
   <body>
     <div class="container">
+      <!-- Datetimepicker form start -->
+      <div class="row">
+        <form id="datetime_range" action="/lab_env_db" method="GET"> 
+          <div class="three columns">
+            <label for="from">From date</label>
+            <input class="u-full-width" id="datetimepicker1" type="text" value="{{from_date}}" name="from">
+          </div>        
+          <div class="three columns">
+            <label for="to">To date</label>           
+            <input class="u-full-width" id="datetimepicker2" type="text" value="{{to_date}}" name="to">
+          </div>           
+          <div class="two columns">           
+            <input class="button-primary" type="submit" value="Submit" style="position:relative; top: 28px" id="submit_button" />
+          </div>        
+        </form> 
+      </div>
+    <!-- Datetimepicker form end -->
+
+    <!-- Radio buttons form start -->
       <div class="row">
         <div class="eleven columns">
           <form id="range_select" action = "/lab_env_db" method="GET">        
@@ -41,6 +60,7 @@
           </form>          
         </div>
       </div>
+      <!-- Datetimepicker form end -->
       <div class="row">
         <div class="one-third column" style="margin-top: 5%">
           <strong>Showing all records</strong>                
@@ -102,6 +122,26 @@
       jQuery("#range_select").submit();
     });
   </script>
+
+  <!-- Datetimepicker files start -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css"/ >
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+  <script>
+    jQuery('#datetimepicker1').datetimepicker(
+      {
+        format:'Y-m-d H:i',
+        defaultDate:'{{from_date}}'
+      });
+    jQuery('#datetimepicker2').datetimepicker({
+        format:'Y-m-d H:i',
+        defaultDate:'{{to_date}}'
+      });
+
+      jQuery("#range_select input[type=radio]").click(function(){ 
+        jQuery("#range_select").submit();
+      });
+  </script>
+  <!-- Datetimepicker files end -->
 
   <!-- Google Charts JS start -->
   <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
